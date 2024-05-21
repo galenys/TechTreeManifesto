@@ -32,7 +32,9 @@ if (window.innerWidth > 800) {
         p.mousePressed = () => {
             // Clear the canvas and start drawing branches
             p.background(255);
-            drawBranch(p, p.mouseX, p.mouseY, 50, p.random(-p.PI, p.PI), 10);
+            // initial angle should be away from the centre of the screen
+            let initial_angle = Math.atan2(p.mouseY - p.height / 2, p.mouseX - p.width / 2);
+            drawBranch(p, p.mouseX, p.mouseY, 50, initial_angle, 10);
             drawing = true;
         };
 
